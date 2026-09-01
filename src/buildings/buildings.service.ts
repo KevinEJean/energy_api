@@ -11,6 +11,10 @@ export class BuildingsService {
         return this.buildings;
     }
 
+    findOne(id: string) {
+        return this.buildings.find((building) => building.id === id);
+    }
+
     create(dto: createBuildingsDto) {
         const building = {
             id: String(this.buildings.length + 1),

@@ -14,8 +14,13 @@ export class BuildingsController {
         return this.buildingsService.findAll();
     }
 
+    @Get()
+    findOne(@Param('id') id: string) {
+        return this.buildingsService.findOne(id);
+    }
+
     @Post()
-    create(@Body() dto:createBuildingsDto) {
+    create(@Body() dto: createBuildingsDto) {
         return this.buildingsService.create(dto);
     }
 }

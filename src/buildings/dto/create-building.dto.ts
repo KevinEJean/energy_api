@@ -1,12 +1,12 @@
-import { IsString, IsEmail, IsInt, Min, Length } from 'class-validator';
+import { IsString, IsEmail, IsInt } from 'class-validator';
 
-export class createBuildingsDto {  
-    @IsString()
-    name!: string;
-  
-    @IsEmail()
-    address!: number;
+export class createBuildingsDto {
+  @IsString()
+  name!: string;
 
-    @IsInt()
-    yearBuilt!: number;
-  }
+  @IsEmail()
+  address!: number;
+
+  @IsInt()
+  yearBuilt!: number;
+}
