@@ -108,18 +108,18 @@ http://localhost:3000/api
 
 ## API
 
-Toutes les routes sont exposées sous le préfixe global `/api`.
+Toutes les routes sont exposées sous le préfixe global `/api/v1`.
 
 | Méthode | Route | Statut attendu | Description |
 |---|---|---:|---|
-| `GET` | `/api/health` | `200 OK` | Vérifie l’état du service |
-| `GET` | `/api/buildings` | `200 OK` | Retourne les bâtiments |
-| `POST` | `/api/buildings` | `201 Created` | Crée un bâtiment |
+| `GET` | `/api/v1/health` | `200 OK` | Vérifie l’état du service |
+| `GET` | `/api/v1/buildings` | `200 OK` | Retourne les bâtiments |
+| `POST` | `/api/v1/buildings` | `201 Created` | Crée un bâtiment |
 
 ### Vérifier l’état du service
 
 ```bash
-curl -i http://localhost:3000/api/health
+curl -i http://localhost:3000/api/v1/health
 ```
 
 Exemple de réponse :
@@ -133,7 +133,7 @@ Exemple de réponse :
 ### Obtenir les bâtiments
 
 ```bash
-curl -i http://localhost:3000/api/buildings
+curl -i -X GET http://localhost:3000/api/v1/buildings
 ```
 
 ### Créer un bâtiment
@@ -142,8 +142,8 @@ curl -i http://localhost:3000/api/buildings
 curl -i \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"name":"Pavillon principal","address":"7000, rue Marie-Victorin","yearBuilt":1965}' \
-  http://localhost:3000/api/buildings
+  -d '{"code": "001","name":"Pavillon principal","address":"7000, rue Marie-Victorin","yearBuilt":1965}' \
+  http://localhost:3000/api/v1/buildings
 ```
 
 L’identifiant est généré par le serveur et ne doit pas être fourni par le client lors de la création.
@@ -166,9 +166,25 @@ src/
 └── buildings/
     ├── buildings.module.ts
     ├── buildings.controller.ts
+    ├── buildings.controller.spec.ts
     ├── buildings.service.ts
+    ├── buildings.service.spec.ts
     └── dto/
         └── create-building.dto.ts
+        └── update-building.dto.ts
+    └── entities/
+        └── building.entity.ts
+└── rooms/
+    ├── rooms.module.ts
+    ├── rooms.controller.ts
+    ├── rooms.controller.spec.ts
+    ├── rooms.service.ts
+    ├── romms.service.spec.ts
+    └── dto/
+        └── create-rooms.dto.ts
+        └── update-rooms.dto.ts
+    └── entities/
+        └── rooms.entity.ts
 ```
 
 Le projet suit une organisation par fonctionnalité :
