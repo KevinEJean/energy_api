@@ -10,7 +10,7 @@ async function bootstrap() {
     type: VersioningType.URI,
     defaultVersion: '1',
   });
-  // configureSwagger(app);
+  configureSwagger(app);
   await app.listen(process.env.PORT ?? 3000);
 }
 void bootstrap();
