@@ -3,7 +3,7 @@ import { RoomsService } from './rooms.service';
 import { CreateRoomsDto } from './dto/create-rooms.dto';
 import { UpdateRoomDto } from './dto/update-rooms.dto';
 import { RoomsResponseDto } from './dto/response-rooms.dto';
-import { ProblemDetailsDto } from 'src/problem-details.dto';
+import { ProblemDetailsDto } from 'src/problems-dto/problem-details.dto';
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Rooms')

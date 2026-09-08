@@ -2,7 +2,7 @@ import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { BuildingsService } from './buildings.service';
 import { createBuildingsDto } from './dto/create-building.dto';
 import { BuildingResponseDto } from './dto/response-building.dto';
-import { ProblemDetailsDto } from 'src/problem-details.dto';
+import { ProblemDetailsDto } from 'src/problems-dto/problem-details.dto';
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Buildings')
